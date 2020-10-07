@@ -84,3 +84,12 @@ $$
 [2] M. Frassl, M. Angermann, M. Lichtenstern, P. Robertson, B. J. Julian, and M. Doniec, “Magnetic maps of indoor environments for precise localization of legged and non-legged locomotion,” in Proc. IEEE/RSJ Int. Conf. Intell. Robots Syst. IEEE, 2013, pp. 913–920.
 
 [3] Sen Wang, Hongkai Wen, Ronald Clark and Niki Trigoni, Keyframe based Large-Scale Indoor Localisation using Geomagnetic Field and Motion Pattern, IEEE/RSI International Conference on Intelligent Robots and Systems. Daejeon: IEEE 2016
+
+
+
+#### wifi定位
+
+​		Wifi定位分两种方式：基于传输时延的，和基于指纹的方法，目前多用基于指纹的方法。基于WiFi的接入点（Access Point）彼此是互相独立的假设，定位方式又细分概率性和确定性两种。
+
+
+
