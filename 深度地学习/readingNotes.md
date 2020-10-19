@@ -85,11 +85,28 @@ $$
 
 [3] Sen Wang, Hongkai Wen, Ronald Clark and Niki Trigoni, Keyframe based Large-Scale Indoor Localisation using Geomagnetic Field and Motion Pattern, IEEE/RSI International Conference on Intelligent Robots and Systems. Daejeon: IEEE 2016
 
-
-
-#### wifi定位
+#### WiFi定位
 
 ​		Wifi定位分两种方式：基于传输时延的，和基于指纹的方法，目前多用基于指纹的方法。基于WiFi的接入点（Access Point）彼此是互相独立的假设，定位方式又细分概率性和确定性两种。
 
 
 
+**多径干扰**
+
+多径效应：这其实是考虑，同一码元波形的各个分量可能通过不同的路径传播，那么不同多径分量到达接收端的时间就不同，第一个多径分量到达的时刻和最后一个多径分量到达的时刻，这之间存在一个时间差，当这个时间差超过了一个码元的宽度之后，就意味着，上一个码元的一部分多径分量，在这个码元本应该传输完毕的时候，还没有到达接收点，而是混在了下一个码元的多径分量中到达的接收点，从而对下一个码元产生了干扰——叠加的时候不仅有自己的分量，还有别人的分量。
+
+ 
+
+RSS：是指客户端接收的无线信号强度（Received Signal Strength），属于MAC层，来自每个数据包。比如手机上，我们经常会看到 Wi-Fi 信号不满格，一般认为信号不好。我个人理解就是指 RSS 不够强。一般 RSS  的强度受到三个方面影响：1）路径衰减；2）遮挡；3）多径效应。利用当前的WiFi设备获取的RSS不太精确，不过可以利用RSS信息做一些应用，例如室内定位、目标对象移动侦测一类的。
+
+CSI：是衡量信道情况的信道状态信息（Channel State Information）,属于PHY层，来自OFDM系统下解码的子载波。CSI是细粒度的物理信息，对环境更加敏感，所以应用于动作识别，手势识别，击键识别，跟踪等领域。
+
+
+
+PoseNet：
+
+loss函数定义为位置差异和角度差异的加权欧式距离，详细定义如下：
+$$
+loss(I)=||\hat{x}-x||_2 + \beta\left \| \hat{q}-\frac{q}{||q||} \right \|_2
+$$
+其中, $x,q$和$\hat{x},\hat{q}$分别表示ground truth的位置(x, y, z)和角度（raw, yaw, pitch）与估计的位置和角度， $\beta$为位置和角度损失的权值。接下来就是模型的训练了，没有特别的训练策略。得到的定位结果看起来不错。
