@@ -1,7 +1,5 @@
 #include<iostream>
 #include<vector>
-#include<algorithm>
-#include<cmath>
 using namespace std;
 class Solution {
 public:
@@ -13,11 +11,30 @@ public:
                 }
             }
         }
+        int c=0;
         for(int i=1;i<A[0].size();i++){
+            c=0;
             for(int j=0;j<A.size();j++){
-                
+                if(A[j][i]==0)
+                    c++;
+            }
+            if(c>A.size()/2){
+                for(int j=0;j<A.size();j++){
+                A[j][i]=1-A[j][i];
+            }
             }
         }
+        int re=0;
+        for(int i=0;i<A.size();i++){
+            int t=1;
+            for(int j=A[i].size()-1;j>=0;j--){
+                // cout<<A[i][j]<<' ';
+                    re+=A[i][j]*t;
+                    t*=2;
+                }
+            // cout<<endl;
+        }
+        return re;
     }
 };
 int main(){
