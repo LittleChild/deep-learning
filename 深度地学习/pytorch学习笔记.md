@@ -1,4 +1,4 @@
-torch.flatten
+**torch.flatten**
 
 torch.flatten(input, start_dim=0, end_dim=-1)
 input: 一个 tensor，即要被“推平”的 tensor。
