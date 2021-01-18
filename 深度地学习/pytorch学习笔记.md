@@ -48,6 +48,7 @@ max_hang_value [1.0625167  1.2350996  0.09232075]
 ```
 
 **torch.optim.lr_scheduler**
+
 用来调整学习率，提供了多种基于epoch训练次数进行学习率调整的方法
 ```python
 #Observe that all parameters are being optimized
