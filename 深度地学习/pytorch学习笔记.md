@@ -50,10 +50,10 @@ max_hang_value [1.0625167  1.2350996  0.09232075]
 **torch.optim.lr_scheduler**
 用来调整学习率，提供了多种基于epoch训练次数进行学习率调整的方法
 ```python
-Observe that all parameters are being optimized
+#Observe that all parameters are being optimized
 optimizer_ft = optim.SGD(model_ft.parameters(), lr=0.001, momentum=0.9)
 
-Decay LR by a factor of 0.1 every 7 epochs
+#Decay LR by a factor of 0.1 every 7 epochs
 lr_scheduler.StepLR(optimizer_ft, step_size=7, gamma=0.1)
 ```
 这里是每隔7个epoch，学习率×0.1
